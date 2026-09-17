@@ -12,7 +12,6 @@ export default function Home() {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    // Lấy thông tin user hiện tại
     const checkUser = async () => {
       const { data: { user } } = await supabase.auth.getUser();
       setUser(user);
@@ -70,7 +69,6 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-slate-50 text-slate-800 p-4 md:p-8 flex flex-col items-center">
-      {/* Header */}
       <div className="w-full max-w-2xl flex justify-between items-center bg-white p-4 rounded-xl shadow-sm border border-slate-200 mb-6">
         <h1 className="text-xl font-bold text-red-600">Săn Sale Hoàn Tiền</h1>
         {user ? (
@@ -83,7 +81,6 @@ export default function Home() {
         )}
       </div>
 
-      {/* Box Đăng nhập / Đăng ký nếu chưa login */}
       {!user && (
         <div className="w-full max-w-2xl bg-white p-6 rounded-xl shadow-sm border border-slate-200 mb-6">
           <h2 className="font-semibold mb-3">Đăng nhập để nhận hoàn tiền vào tài khoản</h2>
@@ -108,7 +105,6 @@ export default function Home() {
         </div>
       )}
 
-      {/* Công cụ Lấy link hoàn tiền */}
       <div className="w-full max-w-2xl bg-white p-6 rounded-xl shadow-sm border border-slate-200">
         <h2 className="text-lg font-bold mb-2">Tạo Link Mua Hàng Hoàn Tiền</h2>
         <p className="text-sm text-slate-500 mb-4">Dán link sản phẩm Shopee/Lazada vào đây trước khi mua để được tích lũy tiền hoàn.</p>
@@ -129,7 +125,6 @@ export default function Home() {
           </button>
         </div>
 
-        {/* Kết quả trả về */}
         {affiliateLink && (
           <div className="mt-6 p-4 bg-red-50 border border-red-200 rounded-lg text-center">
             <p className="text-sm text-slate-700 mb-2 font-medium">Link hoàn tiền của bạn đã sẵn sàng:</p>
